@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.2 (2026-09-27)
+- Plugin ID changed to `ccmdo.gk2.stallmover` (matching the GitHub account), so the config file is now `BepInEx\config\ccmdo.gk2.stallmover.cfg`.
+  - Settings from 0.4.0/0.4.1 (`steven.gk2.stallmover.cfg`) are not carried over. Those pre-releases were withdrawn.
+
 ## 0.4.1 (2026-09-27)
 - Shorter menu options: **Relocate** and **Swap** (previously "Relocate a stall here" and "Swap stall with...").
   - If you already ran 0.4.0, your config file keeps the old text. Edit `Text.RelocateHere` / `Text.SwapWith`, or delete the config file to get the new defaults.

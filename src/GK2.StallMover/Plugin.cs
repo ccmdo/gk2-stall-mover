@@ -12,9 +12,9 @@ namespace GK2.StallMover
     [BepInPlugin(Guid, Name, Version)]
     public class Plugin : BaseUnityPlugin
     {
-        public const string Guid = "steven.gk2.stallmover";
+        public const string Guid = "ccmdo.gk2.stallmover";
         public const string Name = "Stall Mover";
-        public const string Version = "0.4.1";
+        public const string Version = "0.4.2";
 
         internal static ManualLogSource Log;
         internal static ConfigEntry<bool> Enabled;

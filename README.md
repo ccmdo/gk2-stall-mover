@@ -50,7 +50,7 @@ A stall can't be moved while it's being upgraded. The options are also hidden in
 
 ## Configuration
 
-`BepInEx\config\steven.gk2.stallmover.cfg` is created on first launch.
+`BepInEx\config\ccmdo.gk2.stallmover.cfg` is created on first launch.
 
 | Setting | Default | Purpose |
 |---|---|---|

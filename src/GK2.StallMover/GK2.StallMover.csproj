@@ -11,7 +11,7 @@
     <LangVersion>latest</LangVersion>
     <AssemblyName>GK2.StallMover</AssemblyName>
     <RootNamespace>GK2.StallMover</RootNamespace>
-    <Version>0.4.1</Version>
+    <Version>0.4.2</Version>
     <Authors>Steven Hamilton</Authors>
     <Description>Graveyard Keeper 2 BepInEx mod: relocate and swap town merchant stalls.</Description>
     <Nullable>disable</Nullable>
