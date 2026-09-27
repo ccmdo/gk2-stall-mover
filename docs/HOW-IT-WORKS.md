@@ -63,6 +63,6 @@ Both plots were already repaired, so plot state doesn't change.
 
 ## UI
 
-- **Empty location:** a Harmony prefix on `TownBuildingPlaceInteractionHandler.Interact` shows the game's own `Bubble.ShowMultiAnswer` with *Relocate a stall here*, `hint_build` and `common_leave`. Choosing *Build* runs the original handler.
-- **Merchant dialogue:** it's graph-driven (FlowCanvas `Flow_MultiAnswer` → `Bubble.ShowMultiAnswer`). A prefix inserts *Swap stall with...* before the leave answer. When chosen, the mod first calls the graph's own callback with the leave id, so the dialogue ends normally, and then opens the picker.
+- **Empty location:** a Harmony prefix on `TownBuildingPlaceInteractionHandler.Interact` shows the game's own `Bubble.ShowMultiAnswer` with *Relocate*, `hint_build` and `common_leave`. Choosing *Build* runs the original handler.
+- **Merchant dialogue:** it's graph-driven (FlowCanvas `Flow_MultiAnswer` → `Bubble.ShowMultiAnswer`). A prefix inserts *Swap* before the leave answer. When chosen, the mod first calls the graph's own callback with the leave id, so the dialogue ends normally, and then opens the picker.
 - The move itself runs behind `UIFade`, with player control taken for the duration.

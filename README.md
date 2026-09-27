@@ -6,8 +6,8 @@ In the base game, once a stall such as the Baker is built, it stays on that plot
 
 ## Features
 
-- **Relocate a stall.** At an **empty** stall location, choose **"Relocate a stall here"**, then pick one of your built stalls. The stall moves to that spot.
-- **Swap two stalls.** Talk to a built stall's merchant, choose **"Swap stall with..."**, then pick another built stall. The two stalls trade places.
+- **Relocate a stall.** At an **empty** stall location, choose **Relocate**, then pick one of your built stalls. The stall moves to that spot.
+- **Swap two stalls.** Talk to a built stall's merchant, choose **Swap**, then pick another built stall. The two stalls trade places.
 - **What moves with the stall:**
   - the same merchant, with their shop level, stock and orders;
   - the stall's upgrade tier.
@@ -41,8 +41,8 @@ This mod is standalone. It does **not** require GK2 Mod Framework, but it works 
 
 | Where | What you'll see |
 |---|---|
-| Interacting with an **empty** stall location, when a compatible stall is built elsewhere | **Relocate a stall here** / Build / Leave |
-| Talking to a **built stall's merchant**, when a compatible stall to swap with exists | **Swap stall with...** added before *Leave* |
+| Interacting with an **empty** stall location, when a compatible stall is built elsewhere | **Relocate** / Build / Leave |
+| Talking to a **built stall's merchant**, when a compatible stall to swap with exists | **Swap** added before *Leave* |
 
 The screen fades briefly while the stall is moved.
 
@@ -55,8 +55,8 @@ A stall can't be moved while it's being upgraded. The options are also hidden in
 | Setting | Default | Purpose |
 |---|---|---|
 | `General.Enabled` | `true` | Turn the mod's options on or off. |
-| `Text.RelocateHere` | `Relocate a stall here` | Menu text. You can change it, for example to translate it. |
-| `Text.SwapWith` | `Swap stall with...` | Menu text. |
+| `Text.RelocateHere` | `Relocate` | Menu text. You can change it, for example to translate it. |
+| `Text.SwapWith` | `Swap` | Menu text. |
 | `Text.Cancel` | `Cancel` | Menu text. |
 | `Debug.VerboseLogging` | `false` | Detailed diagnostics in the BepInEx log. |
 
@@ -64,10 +64,10 @@ A stall can't be moved while it's being upgraded. The options are also hidden in
 
 - **Single-player only.** The options are disabled in co-op.
 - **Tested so far:**
-  - relocating and swapping **house** stalls at **tier 1**;
+  - relocating and swapping **house** and **yard** stalls at **tier 1**;
   - plot repair and un-repair;
   - save and reload.
-- **Not yet tested in-game:** yard stalls (Builder, Blacksmith, Shalman, Brewery, Potter) and upgraded (tier 2/3) stalls. They use the same code path.
+- **Not yet tested in-game:** upgraded (tier 2/3) stalls. They use the same code path.
 - **The menu text is English only.** You can change it in the config file.
 - **Edge cases the mod doesn't handle:**
   - if two plots share the same ruin objects, un-repairing one could affect the other;

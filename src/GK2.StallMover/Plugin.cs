@@ -14,7 +14,7 @@ namespace GK2.StallMover
     {
         public const string Guid = "steven.gk2.stallmover";
         public const string Name = "Stall Mover";
-        public const string Version = "0.4.0";
+        public const string Version = "0.4.1";
 
         internal static ManualLogSource Log;
         internal static ConfigEntry<bool> Enabled;
@@ -30,10 +30,10 @@ namespace GK2.StallMover
             Log = Logger;
             Enabled = Config.Bind("General", "Enabled", true,
                 "Enable relocating and swapping town merchant stalls.");
-            TextRelocateHere = Config.Bind("Text", "RelocateHere", "Relocate a stall here",
-                "Option shown at an empty stall location.");
-            TextSwapWith = Config.Bind("Text", "SwapWith", "Swap stall with...",
-                "Option added to a stall merchant's dialogue.");
+            TextRelocateHere = Config.Bind("Text", "RelocateHere", "Relocate",
+                "Option shown at an empty stall location (moves a built stall here).");
+            TextSwapWith = Config.Bind("Text", "SwapWith", "Swap",
+                "Option added to a stall merchant's dialogue (swaps this stall with another).");
             TextCancel = Config.Bind("Text", "Cancel", "Cancel",
                 "Last option in the stall picker.");
             VerboseLogging = Config.Bind("Debug", "VerboseLogging", false,
@@ -78,7 +78,7 @@ namespace GK2.StallMover
             finally { Patches.Bypass = false; }
         }
 
-        /// Empty location: "Relocate a stall here" -> pick a built stall.
+        /// Empty location: "Relocate" -> pick a built stall.
         public static void OpenRelocateMenu(StallLocation target, List<StallLocation> candidates, Action openBuild)
         {
             var opts = new List<string> { RelocateHere, OptBuild, OptLeave };
@@ -90,7 +90,7 @@ namespace GK2.StallMover
             });
         }
 
-        /// Built stall: "Swap stall with..." -> pick another built stall.
+        /// Built stall: "Swap" -> pick another built stall.
         public static void OpenSwapPicker(StallLocation here, List<StallLocation> candidates)
         {
             PickStall(candidates, here.Character, other => RunWithFade(() => Relocator.Swap(here, other)));
@@ -152,7 +152,7 @@ namespace GK2.StallMover
 
         static bool Allowed() => Plugin.Enabled.Value && !Town.IsCoop() && MainGame.Instance?.GameSave != null;
 
-        /// Interacting with an empty stall location: offer "Relocate a stall here" when a compatible stall exists.
+        /// Interacting with an empty stall location: offer "Relocate" when a compatible stall exists.
         [HarmonyPrefix]
         [HarmonyPatch(typeof(TownBuildingPlaceInteractionHandler), nameof(TownBuildingPlaceInteractionHandler.Interact))]
         static bool PlaceInteract(TownBuildingPlaceInteractionHandler __instance, PlayerController interactor, ref bool __result)
@@ -185,7 +185,7 @@ namespace GK2.StallMover
 
         static readonly string[] LeaveHints = { "leave", "bye", "exit", "goodbye" };
 
-        /// Every dialogue bubble: add "Swap stall with..." to a stall merchant's dialogue when a swap partner exists.
+        /// Every dialogue bubble: add "Swap" to a stall merchant's dialogue when a swap partner exists.
         [HarmonyPrefix]
         [HarmonyPatch(typeof(Bubble), nameof(Bubble.ShowMultiAnswer))]
         static void ShowMultiAnswer(ref List<AnswerVisualData> answers, WgoData dialogParticipant, ref Action<string> onChosen)

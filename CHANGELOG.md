@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.1 (2026-09-27)
+- Shorter menu options: **Relocate** and **Swap** (previously "Relocate a stall here" and "Swap stall with...").
+  - If you already ran 0.4.0, your config file keeps the old text. Edit `Text.RelocateHere` / `Text.SwapWith`, or delete the config file to get the new defaults.
+- Tested: relocating and swapping **yard** stalls.
+
 ## 0.4.0 (2026-09-27): first public version
 - Relocate a built merchant stall to an empty stall location, or swap two built stalls.
 - The new plot is repaired as it would be by a normal build, and the old plot returns to its original ruined state. Net town quality is unchanged.
