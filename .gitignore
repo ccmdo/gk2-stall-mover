@@ -1,0 +1,13 @@
+# Build output
+bin/
+obj/
+*.user
+.vs/
+.vscode/
+.idea/
+
+# Never commit game files or decompiled game code
+lib/
+decompiled/
+*.dat
+*.info
